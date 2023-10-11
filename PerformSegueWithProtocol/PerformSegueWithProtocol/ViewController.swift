@@ -7,13 +7,36 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SeguePerformable {
 
+    @IBOutlet weak var productNameLabel: UILabel!
+    var productColor: String = "Black"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    @IBAction func getDetailButtonClicked(_ sender: Any) {
+        
+//        performSegue(withIdentifier: "toDetailVC", sender: productColor)
+        self.performSegue(identifier: "toDetailVC")
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+                let destination = segue.destination as! DetailProductViewController
+                destination.comingProductColor = productColor
+        }
     }
 
-
+    @IBAction func secondButton(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toProfileVC", sender: nil)
+    }
+    
+    
 }
 
