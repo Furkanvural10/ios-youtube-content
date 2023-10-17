@@ -1,21 +1,72 @@
-//
-//  ContentView.swift
-//  Spacer
-//
-//  Created by furkan vural on 17.10.2023.
-//
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
+//        MARK: - VStack Example
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            
+            Image(systemName: "car")
+                .font(.system(size: 80))
+            Spacer()
+            Image(systemName: "car.fill")
+                .font(.system(size: 80))
+         
         }
-        .padding()
+        
+//        MARK: - Spacer with different position (VStack)
+//        VStack {
+//            Spacer()
+//            Image(systemName: "car")
+//                .font(.system(size: 80))
+//
+//            Image(systemName: "car.fill")
+//                .font(.system(size: 80))
+//
+//        }
+        
+//        VStack {
+//            Image(systemName: "car")
+//                .font(.system(size: 80))
+//            Image(systemName: "car.fill")
+//                .font(.system(size: 80))
+//            Spacer()
+//        }
+        
+        
+        
+        
+        
+        
+//        MARK: - HStack Example
+//        HStack {
+//            Image(systemName: "car")
+//                .font(.system(size: 80))
+//            Spacer()
+//            Image(systemName: "car.fill")
+//                .font(.system(size: 80))
+//        }
+        
+        
+//        MARK: - Spacer with different position (HStack)
+//        HStack {
+//            Spacer()
+//            Image(systemName: "car")
+//                .font(.system(size: 80))
+//
+//            Image(systemName: "car.fill")
+//                .font(.system(size: 80))
+//        }
+        
+//        HStack {
+//            Image(systemName: "car")
+//                .font(.system(size: 80))
+//            Image(systemName: "car.fill")
+//                .font(.system(size: 80))
+//            Spacer()
+//        }
+        
     }
 }
 
