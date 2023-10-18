@@ -26,6 +26,34 @@ struct ContentView: View {
 //            .font(.caption)
 //            .font(.caption2)
         
+//        MARK: - Font style with system
+//        Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .font(.system(size: 40, weight: .bold, design: .default))
+//            .font(.system(size: 40, weight: .thin, design: .monospaced))
+//            .font(.system(size: 40, weight: .light, design: .rounded))
+//            .font(.system(size: 40, weight: .ultraLight, design: .serif))
+//            .font(.system(size: 40, weight: .medium, design: .default))
+//            .font(.system(size: 40, weight: .semibold, design: .default))
+//            .font(.system(size: 40, weight: .regular, design: .default))
+//            .font(.system(size: 40, weight: .heavy, design: .default))
+//            .font(.system(size: 40, weight: .black, design: .default))
+        
+//        MARK: - Font style with custom
+//        Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .font(.custom("AvenirNext-Bold", size: 30))
+//            .font(.custom("Optima-Regular", size: 30))
+        
+//        MARK: - Foreground Modifier
+//          Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .foregroundColor(.blue)
+        
+//        MARK: - Foreground Modifier
+//          Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .background(.orange)
+         
+        
+        
+        
         
         
         
