@@ -50,6 +50,22 @@ struct ContentView: View {
 //        MARK: - Foreground Modifier
 //          Text("Lorem ipsum dolor sit amet consectetur ipsum")
 //            .background(.orange)
+
+//        MARK: - Line Limit
+//          Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .lineLimit(nil) -> Default
+//            .lineLimit(1)
+//            .lineLimit(2)
+        
+//        MARK: - Line Limit
+//          Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .truncationMode(.tail)
+//            .truncationMode(.head)
+//            .truncationMode(.middle)
+        
+//        MARK: - Frame
+//          Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .frame(width: 300, height: 300)
          
         
         
