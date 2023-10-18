@@ -66,16 +66,12 @@ struct ContentView: View {
 //        MARK: - Frame
 //          Text("Lorem ipsum dolor sit amet consectetur ipsum")
 //            .frame(width: 300, height: 300)
-         
         
+//        MARK: - Opacity
+//          Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .background(.orange)
+//            .opacity(0.5)
         
-        
-        
-        
-        
-            
-            
-            
     }
 }
 
