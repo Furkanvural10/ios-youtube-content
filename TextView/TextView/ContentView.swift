@@ -9,13 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        
+        Text("Lorem ipsum dolor sit amet consectetur ipsum")
+        
+//        MARK: - Font style
+//        Text("Lorem ipsum dolor sit amet consectetur ipsum")
+//            .font(.title)
+//            .font(.largeTitle)
+//            .font(.title2)
+//            .font(.title3)
+//            .font(.headline)
+//            .font(.body)
+//            .font(.callout)
+//            .font(.subheadline)
+//            .font(.footnote)
+//            .font(.caption)
+//            .font(.caption2)
+        
+        
+        
+        
+            
+            
+            
     }
 }
 
