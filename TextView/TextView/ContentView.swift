@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        Text("Lorem ipsum dolor sit amet consectetur ipsum")
+        Text("Hello Developers")
+     
         
 //        MARK: - Font style
 //        Text("Lorem ipsum dolor sit amet consectetur ipsum")
@@ -71,6 +72,27 @@ struct ContentView: View {
 //          Text("Lorem ipsum dolor sit amet consectetur ipsum")
 //            .background(.orange)
 //            .opacity(0.5)
+        
+//        MARK: - BaselineOffset
+//        Text("Hello developers")
+//            .frame(width: 300, height: 100)
+//            .foregroundColor(Color.black)
+//            .background(Color.cyan)
+//            .baselineOffset(-39)
+        
+//        MARK: - Padding
+//        Text("Hello developers")
+//            .frame(width: 300, height: 100)
+//            .foregroundColor(Color.black)
+//            .background(Color.cyan)
+//            .padding()
+        
+//        MARK: - Multiple Padding
+//        Text("Hello developers")
+//            .frame(width: 300, height: 100)
+//            .foregroundColor(Color.black)
+//            .background(Color.cyan)
+//            .padding(.leading, 40), .padding([.leading, .trailing], 40),
         
     }
 }
