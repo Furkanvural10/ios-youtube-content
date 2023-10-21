@@ -12,9 +12,15 @@ struct ContentView: View {
         
         Color.gray
         
-//        MARK: - Color with ignoresSafeArea
-//        Color.gray
-//            .ignoresSafeArea()
+        //        MARK: - Color with ignoresSafeArea
+        //        Color.gray
+        //            .ignoresSafeArea()
+        
+        //        MARK: - Color with ignoresSafeArea(edges:)
+        //        Color.gray
+        //            .ignoresSafeArea(edges: .top) // .bottom
+        
+        
         
         
             
