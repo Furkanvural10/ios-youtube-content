@@ -20,6 +20,14 @@ struct ContentView: View {
         //        Color.gray
         //            .ignoresSafeArea(edges: .top) // .bottom
         
+        //        MARK: - ClipShape Modifier
+        //        Color.gray
+        //            .frame(width: 300, height: 100)
+        //            .clipShape(Circle())
+        
+        //        MARK: - White
+        //        Color(white: 0.1) Range(0.0 to 1.0)
+        
         
         
         
