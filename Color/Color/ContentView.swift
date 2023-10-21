@@ -28,6 +28,16 @@ struct ContentView: View {
         //        MARK: - White
         //        Color(white: 0.1) Range(0.0 to 1.0)
         
+        //        MARK: - Shadow Modifier
+        //                Color.gray
+        //                    .frame(width: 100, height: 100)
+        //                    .shadow(
+        //                        color: Color.pink,
+        //                        radius: 30,
+        //                        x: -10,
+        //                        y: 10
+        //                    )
+        
         
         
         
