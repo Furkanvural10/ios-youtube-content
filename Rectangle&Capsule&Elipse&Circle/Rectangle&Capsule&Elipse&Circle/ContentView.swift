@@ -3,7 +3,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
+        Text("Rectangle, Rounded Rec. Capsule, Elipse, Circle")
         // MARK: - Rectangle
         //        Rectangle()
         //            .fill(.red)
@@ -32,17 +32,9 @@ struct ContentView: View {
         //            .frame(width: 200, height: 100)
         
         // MARK: - Circle
-        Circle()
-            .fill(.cyan)
-            .frame(height: 200)
-        
-        
-        
-        
-        
-        
-        
-        
+        //        Circle()
+        //            .fill(.cyan)
+        //            .frame(height: 200)  
     }
 }
 
