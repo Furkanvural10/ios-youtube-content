@@ -21,10 +21,17 @@ struct ContentView: View {
 //                        .frame(width: 300, height: 70)
 //                }
 
+        // MARK: - Capsule
+//        Capsule()
+//            .fill(.pink)
+//            .frame(width: 300, height: 50)
         
-        Capsule()
-            .fill(.pink)
-            .frame(width: 300, height: 50)
+        
+        Ellipse()
+            .fill(.blue)
+            .frame(width: 200, height: 100)
+        
+
 
         
 
