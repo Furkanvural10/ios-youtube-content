@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lWa-Yy-FFy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SEG-CG-L7S">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -68,10 +68,105 @@
             </objects>
             <point key="canvasLocation" x="1156" y="-19"/>
         </scene>
+        <!--Table View3 View Controller-->
+        <scene sceneID="wf0-4v-PHe">
+            <objects>
+                <viewController id="SEG-CG-L7S" customClass="TableView3ViewController" customModule="TableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gfb-ok-huP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QF9-pY-5Dw">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="productID" id="Ldi-V7-vKA" customClass="ProductTableViewCell" customModule="TableView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ldi-V7-vKA" id="xhL-Sj-256">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qg5-sB-VZr">
+                                                    <rect key="frame" x="30" y="29.999999999999996" width="45" height="60.666666666666657"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgP-mu-50l">
+                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLX-tS-b8F">
+                                                            <rect key="frame" x="0.0" y="40.333333333333329" width="45" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qIB-Jq-UDA">
+                                                    <rect key="frame" x="268.66666666666669" y="20.000000000000007" width="84.333333333333314" height="88.666666666666686"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSX-Br-uw9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="84.333333333333329" height="34.333333333333336"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="Favorite">
+                                                                <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
+                                                            </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="favoriteButtonClicked:" destination="Ldi-V7-vKA" eventType="touchUpInside" id="FV8-7h-f0h"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxa-Fg-5G1">
+                                                            <rect key="frame" x="0.0" y="54.333333333333329" width="84.333333333333329" height="34.333333333333329"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="Buy"/>
+                                                            <connections>
+                                                                <action selector="buyButtonClicked:" destination="Ldi-V7-vKA" eventType="touchUpInside" id="vOn-7S-ihE"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="qIB-Jq-UDA" secondAttribute="trailing" constant="40" id="WEb-90-l5m"/>
+                                                <constraint firstItem="qIB-Jq-UDA" firstAttribute="top" secondItem="xhL-Sj-256" secondAttribute="top" constant="20" id="WbT-d6-2Jt"/>
+                                                <constraint firstItem="qg5-sB-VZr" firstAttribute="leading" secondItem="xhL-Sj-256" secondAttribute="leading" constant="30" id="aoE-CA-LLH"/>
+                                                <constraint firstItem="qg5-sB-VZr" firstAttribute="top" secondItem="xhL-Sj-256" secondAttribute="top" constant="30" id="xeL-AC-t7b"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="priceLabel" destination="hLX-tS-b8F" id="XCX-qq-9iu"/>
+                                            <outlet property="productNameLabel" destination="LgP-mu-50l" id="dfh-qg-ilO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gew-x2-g5y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QF9-pY-5Dw" firstAttribute="leading" secondItem="gew-x2-g5y" secondAttribute="leading" id="0wF-Q5-nya"/>
+                            <constraint firstItem="QF9-pY-5Dw" firstAttribute="top" secondItem="gew-x2-g5y" secondAttribute="top" id="B5b-bx-pB5"/>
+                            <constraint firstItem="gew-x2-g5y" firstAttribute="trailing" secondItem="QF9-pY-5Dw" secondAttribute="trailing" id="wGU-v0-Loy"/>
+                            <constraint firstItem="gew-x2-g5y" firstAttribute="bottom" secondItem="QF9-pY-5Dw" secondAttribute="bottom" id="wbx-0S-5gc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="productTableView" destination="QF9-pY-5Dw" id="HMu-qj-3qU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8Q-1O-Mnc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2276" y="-8"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
