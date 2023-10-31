@@ -57,3 +57,31 @@ do {
 } catch {
     print(error.localizedDescription)
 }
+
+
+let socialMediaJson = """
+
+{
+    "user_name" : "furkanvural",
+    "user_following" : 235,
+    "user_followers" : 596
+}
+
+""".data(using: .utf8)!
+
+
+struct SocialMediaPerson: Decodable {
+    let userName: String
+    let userFollowing: Int
+    let userFollowers: Int
+}
+
+do {
+    let jsonDecoder = JSONDecoder()
+    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+    
+    let person = try jsonDecoder.decode(SocialMediaPerson.self, from: socialMediaJson)
+    print(person.userName)
+} catch {
+    print(error.localizedDescription)
+}
