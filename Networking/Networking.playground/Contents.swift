@@ -360,3 +360,47 @@ do {
 } catch {
     print(error.localizedDescription)
 }
+
+// MARK: - Arbitary Types
+
+let jsonExample11 = """
+
+    {
+        "name": "Furkan",
+        "zero" : "true",
+    }
+""".data(using: .utf8)!
+
+struct CustomDecodeType: Decodable {
+    
+    let value: Any
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let stringType = try? container.decode(String.self) {
+            self.value = stringType
+        } else if let boolType = try? container.decode(Bool.self) {
+            self.value = boolType
+        } else if let intType = try? container.decode(Int.self) {
+            self.value = intType
+        } else {
+            self.value = Double()
+        }
+    }
+}
+
+
+struct Person5: Decodable {
+    let name: String
+    let zero: CustomDecodeType
+}
+
+do {
+    let result = try JSONDecoder().decode(Person5.self, from: jsonExample11)
+    print(result.name)
+    print(result.zero.value is Bool)
+} catch {
+    print(error.localizedDescription)
+}
+
+
