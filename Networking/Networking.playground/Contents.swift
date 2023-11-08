@@ -403,74 +403,135 @@ import Foundation
 //    print(error.localizedDescription)
 //}
 
+//
+//let json0 = """
+//[
+//    {
+//        "name": "Ford",
+//        "price": "1.2",
+//        "electric" :false,
+//        "kw": 0,
+//        "batteryId" : ""
+//    },
+//    {
+//        "name": "Tesla",
+//        "price": "1.6",
+//        "electric" :true,
+//        "kw": 234,
+//        "batteryId" : "332UJF"
+//    },
+//    {
+//        "name": "Mercedes",
+//        "price": "2.5",
+//        "electric" :false,
+//        "kw": 0,
+//        "batteryId" : "0"
+//    },
+//    {
+//        "name": "Bmw",
+//        "price": "2",
+//        "electric" :true,
+//        "kw": 5673,
+//        "batteryId" : "823NJS"
+//    }
+//]
+//
+//""".data(using: .utf8)!
+//
+//class Car: Decodable {
+//    let name: String
+//    let price: String
+//
+//}
+//
+//class ElectricCar: Car {
+//
+//    private enum CodingKeys: CodingKey {
+//        case electric
+//        case kw
+//        case batteryId
+//    }
+//
+//    let electric: Bool
+//    let kw: Int
+//    let batteryId: String
+//
+//    required init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.electric = try container.decode(Bool.self, forKey: .electric)
+//        self.kw = try container.decode(Int.self, forKey: .kw)
+//        self.batteryId = try container.decode(String.self, forKey: .batteryId)
+//        try super.init(from: decoder)
+//    }
+//}
+//
+//do {
+//    let result = try JSONDecoder().decode([ElectricCar].self, from: json0)
+//    let eCarList = result.filter { $0.electric }.map { $0.name }
+//    let nonECarList = result.filter { !$0.electric }.map { $0.name }
+//    print(eCarList)
+//    print(nonECarList)
+//} catch {
+//    print(error.localizedDescription)
+//}
 
-let json0 = """
-[
-    {
-        "name": "Ford",
-        "price": "1.2",
-        "electric" :false,
-        "kw": 0,
-        "batteryId" : ""
-    },
-    {
-        "name": "Tesla",
-        "price": "1.6",
-        "electric" :true,
-        "kw": 234,
-        "batteryId" : "332UJF"
-    },
-    {
-        "name": "Mercedes",
-        "price": "2.5",
-        "electric" :false,
-        "kw": 0,
-        "batteryId" : "0"
-    },
-    {
-        "name": "Bmw",
-        "price": "2",
-        "electric" :true,
-        "kw": 5673,
-        "batteryId" : "823NJS"
-    }
-]
+
+let flatJson = """
+
+{
+    "name": "Furkan",
+    "surname" : "Vural",
+    "age" : 20,
+    "address" : {
+            "city": "Istanbul",
+            "country": "Turkey"
+        }
+}
 
 """.data(using: .utf8)!
 
-class Car: Decodable {
-    let name: String
-    let price: String
-    
-}
-
-class ElectricCar: Car {
+struct PersonFlatModel: Decodable {
     
     private enum CodingKeys: CodingKey {
-        case electric
-        case kw
-        case batteryId
+        case name
+        case surname
+        case age
+        case address
     }
     
-    let electric: Bool
-    let kw: Int
-    let batteryId: String
+    private enum NestedCodingKeys: CodingKey {
+        case city
+        case country
+    }
     
-    required init(from decoder: Decoder) throws {
+    let name: String
+    let surname: String
+    let age: Int
+    
+    let city: String
+    let country: String
+    
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.electric = try container.decode(Bool.self, forKey: .electric)
-        self.kw = try container.decode(Int.self, forKey: .kw)
-        self.batteryId = try container.decode(String.self, forKey: .batteryId)
-        try super.init(from: decoder)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.surname = try container.decode(String.self, forKey: .surname)
+        self.age = try container.decode(Int.self, forKey: .age)
+        
+        let addressContainer = try container.nestedContainer(keyedBy: NestedCodingKeys.self, forKey: .address)
+        self.city = try addressContainer.decode(String.self, forKey: .city)
+        self.country = try addressContainer.decode(String.self, forKey: .country)
     }
 }
 
+
 do {
-    let result = try JSONDecoder().decode([ElectricCar].self, from: json0)
-    let eCarList = result.filter { $0.electric }.map { $0.name }
-    let nonECarList = result.filter { !$0.electric }.map { $0.name }
-    print(eCarList)
-    print(nonECarList)
+    let result = try JSONDecoder().decode(PersonFlatModel.self, from: flatJson)
+    print(result.country)
+    print(result.age)
+    print(result.city)
 } catch {
     print(error.localizedDescription)
 }
+
+
+
