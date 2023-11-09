@@ -476,62 +476,104 @@ import Foundation
 //}
 
 
-let flatJson = """
+//let flatJson = """
+//
+//{
+//    "name": "Furkan",
+//    "surname" : "Vural",
+//    "age" : 20,
+//    "address" : {
+//            "city": "Istanbul",
+//            "country": "Turkey"
+//        }
+//}
+//
+//""".data(using: .utf8)!
+//
+//struct PersonFlatModel: Decodable {
+//
+//    private enum CodingKeys: CodingKey {
+//        case name
+//        case surname
+//        case age
+//        case address
+//    }
+//
+//    private enum NestedCodingKeys: CodingKey {
+//        case city
+//        case country
+//    }
+//
+//    let name: String
+//    let surname: String
+//    let age: Int
+//
+//    let city: String
+//    let country: String
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.surname = try container.decode(String.self, forKey: .surname)
+//        self.age = try container.decode(Int.self, forKey: .age)
+//
+//        let addressContainer = try container.nestedContainer(keyedBy: NestedCodingKeys.self, forKey: .address)
+//        self.city = try addressContainer.decode(String.self, forKey: .city)
+//        self.country = try addressContainer.decode(String.self, forKey: .country)
+//    }
+//}
+//
+//
+//do {
+//    let result = try JSONDecoder().decode(PersonFlatModel.self, from: flatJson)
+//    print(result.country)
+//    print(result.age)
+//    print(result.city)
+//} catch {
+//    print(error.localizedDescription)
+//}
 
+
+let json = """
 {
-    "name": "Furkan",
-    "surname" : "Vural",
-    "age" : 20,
-    "address" : {
-            "city": "Istanbul",
-            "country": "Turkey"
-        }
+    "speed" : ["150.44,81.231101512"]
+     
 }
-
 """.data(using: .utf8)!
 
-struct PersonFlatModel: Decodable {
+struct ConvertSpeed: Decodable {
     
-    private enum CodingKeys: CodingKey {
-        case name
-        case surname
-        case age
-        case address
-    }
-    
-    private enum NestedCodingKeys: CodingKey {
-        case city
-        case country
-    }
-    
-    let name: String
-    let surname: String
-    let age: Int
-    
-    let city: String
-    let country: String
+    let kmh: Double
+    let knot: Double
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.surname = try container.decode(String.self, forKey: .surname)
-        self.age = try container.decode(Int.self, forKey: .age)
+        let container = try decoder.singleValueContainer()
+        let string = try container.decode(String.self)
+        print(string)
         
-        let addressContainer = try container.nestedContainer(keyedBy: NestedCodingKeys.self, forKey: .address)
-        self.city = try addressContainer.decode(String.self, forKey: .city)
-        self.country = try addressContainer.decode(String.self, forKey: .country)
+        let values = string.components(separatedBy: ",")
+        print(values)
+        
+        guard values.count == 2,
+              let kmh = Double(values[0]),
+              let knot = Double(values[1]) else {
+                  throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: container.codingPath, debugDescription: "Invalid coordinates"))
+              }
+        
+        self.kmh = kmh
+        self.knot = knot
     }
 }
 
 
+struct SpeedModel: Decodable {
+    let speed: [ConvertSpeed]
+}
+
 do {
-    let result = try JSONDecoder().decode(PersonFlatModel.self, from: flatJson)
-    print(result.country)
-    print(result.age)
-    print(result.city)
+    let result = try JSONDecoder().decode(SpeedModel.self, from: json)
+    print(result.speed[0].kmh)
+    print(result.speed[0].knot)
 } catch {
     print(error.localizedDescription)
 }
-
-
-
