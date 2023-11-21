@@ -17,6 +17,16 @@ import Foundation
  3- NetworkError
  */
 
+enum NetworkError: String, Error {
+    case unableToCompleteError
+    case invalidResponse
+    case invalidData
+    case authError
+    case unknownError
+    case decodingError
+}
+
+
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
